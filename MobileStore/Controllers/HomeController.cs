@@ -1,37 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AspNetMvc.Models;
+using MobileStore.DbRepo;
 
-namespace AspNetMvc.Controllers
+namespace MobileStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        MobileContext _mobileContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(MobileContext mobileContext)
         {
-            _logger = logger;
+            _mobileContext = mobileContext;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(_mobileContext.Phones.ToList());
         }
     }
 }

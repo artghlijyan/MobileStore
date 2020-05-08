@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetMvc.Models
+namespace MobileStore.Models
 {
     public class Phone
     {

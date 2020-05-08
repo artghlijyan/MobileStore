@@ -1,7 +1,10 @@
+using MobileStore.DbRepo;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MobileStore.Mocks;
 
-namespace AspNetMvc
+namespace MobileStore
 {
     public class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace AspNetMvc.Models
+﻿namespace MobileStore.Models
 {
     public class Order
     {

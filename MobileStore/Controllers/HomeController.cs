@@ -7,6 +7,7 @@ using MobileStore.Models;
 
 namespace MobileStore.Controllers
 {
+    [Controller]
     public class HomeController : Controller
     {
         MobileContext _mobileContext;

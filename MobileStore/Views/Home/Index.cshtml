@@ -1,33 +1,22 @@
-﻿@model  IEnumerable<Phone>
-
+﻿@model IEnumerable<Phone>
 @{
-	ViewData["Title"] = "Smartphones";
+	ViewData["Title"] = "Каталог товаров";
 }
-
-<html>
-<head>
-	<title>MobileStore</title>
-</head>
-<body>
-	<h3>Smartphones</h3>
-	<table>
+<h3>Smartphone Catalogue</h3>
+<table class="table-condensed">
+	<tr>
+		<td>Model</td>
+		<td>Manufacturer</td>
+		<td>Price</td>
+		<td></td>
+	</tr>
+	@foreach (var phone in Model)
+	{
 		<tr>
-			<td>Model</td>
-			<td>Manufacturer</td>
-			<td>Price</td>
-			<td></td>
+			<td>@phone.Name</td>
+			<td>@phone.Company</td>
+			<td>@phone.Price</td>
+			<td><a href="~/Home/Buy/@phone.Id">Buy</a></td>
 		</tr>
-		@foreach (var phone in Model)
-		{
-			<tr>
-				<td>@phone.Name</td>
-				<td>@phone.Company</td>
-				<td>@phone.Price</td>
-				<td><a href="~/Home/Buy/@phone.Id">Buy</a></td>
-			</tr>
-		}
-	</table>
-</body>
-</html>
-
-
+	}
+</table>

@@ -1,14 +1,12 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MobileStore.DbRepo;
 using MobileStore.Models;
 
 namespace MobileStore.Controllers
 {
     [Controller]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         MobileContext _mobileContext;
 
@@ -25,7 +23,7 @@ namespace MobileStore.Controllers
         [HttpGet]
         public IActionResult Buy(int? id)
         {
-            if (id == null) 
+            if (id == null)
                 return RedirectToAction("Index");
 
             ViewBag.PhoneId = id;
@@ -35,6 +33,7 @@ namespace MobileStore.Controllers
         [HttpPost]
         public string Buy(Order order)
         {
+
             _mobileContext.Orders.Add(order);
             _mobileContext.SaveChanges();
             return "Thank you " + order.User + " for your order";

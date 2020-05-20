@@ -31,12 +31,12 @@ namespace MobileStore.Controllers
         }
 
         [HttpPost]
-        public string Buy(Order order)
+        public IActionResult Buy(Order order)
         {
 
             _mobileContext.Orders.Add(order);
             _mobileContext.SaveChanges();
-            return "Thank you " + order.User + " for your order";
+            return Content("Thank you " + order.User + " for your order");
         }
     }
 }
